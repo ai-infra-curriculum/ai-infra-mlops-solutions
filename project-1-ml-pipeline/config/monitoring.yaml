@@ -1,0 +1,230 @@
+# Monitoring and Drift Detection Configuration
+drift_detection:
+  enabled: true
+  check_interval_minutes: "${DRIFT_CHECK_INTERVAL_MINUTES}"
+
+  data_drift:
+    enabled: true
+    methods:
+      - kolmogorov_smirnov  # For numerical features
+      - chi_square           # For categorical features
+      - psi                  # Population Stability Index
+      - jensen_shannon       # JS divergence
+
+    thresholds:
+      ks_statistic: "${DRIFT_THRESHOLD_KS}"
+      chi_square_pvalue: 0.05
+      psi_threshold: "${DRIFT_THRESHOLD_PSI}"
+      js_divergence: 0.1
+
+    window_size_days: 7
+    min_samples: 1000
+
+  model_drift:
+    enabled: true
+
+    prediction_drift:
+      enabled: true
+      threshold: 0.15
+      window_size: 1000
+
+    confidence_drift:
+      enabled: true
+      threshold: 0.2
+      window_size: 1000
+
+    performance_drift:
+      enabled: true
+      metrics:
+        - accuracy
+        - precision
+        - recall
+        - f1
+      threshold_drop: 0.05
+      requires_labels: true
+
+  feature_importance_drift:
+    enabled: true
+    threshold: 0.3
+    comparison_method: "correlation"
+
+baseline:
+  storage_type: "database"
+  table_name: "drift_baselines"
+
+  feature_statistics:
+    - mean
+    - std
+    - min
+    - max
+    - percentiles: [25, 50, 75]
+    - distribution
+
+  prediction_statistics:
+    - mean
+    - std
+    - distribution
+    - confidence_distribution
+
+  update_strategy: "rolling_window"
+  update_interval_days: 30
+
+alerting:
+  enabled: true
+
+  channels:
+    slack:
+      enabled: false
+      webhook_url: "${SLACK_WEBHOOK_URL}"
+      channel: "#ml-alerts"
+
+    email:
+      enabled: false
+      smtp_server: "${SMTP_SERVER}"
+      smtp_port: "${SMTP_PORT}"
+      from_email: "${ALERT_FROM_EMAIL}"
+      to_emails:
+        - "${ALERT_TO_EMAIL}"
+
+    pagerduty:
+      enabled: false
+      integration_key: "${PAGERDUTY_KEY}"
+
+    database:
+      enabled: true
+      table_name: "drift_alerts"
+
+  severity_levels:
+    critical:
+      thresholds:
+        data_drift: 0.3
+        model_drift: 0.3
+        performance_drop: 0.15
+      actions:
+        - notify_all
+        - trigger_retraining
+
+    warning:
+      thresholds:
+        data_drift: 0.2
+        model_drift: 0.2
+        performance_drop: 0.1
+      actions:
+        - notify_team
+        - flag_for_review
+
+    info:
+      thresholds:
+        data_drift: 0.1
+        model_drift: 0.1
+        performance_drop: 0.05
+      actions:
+        - log_event
+
+retraining_triggers:
+  enabled: true
+
+  triggers:
+    data_drift:
+      enabled: true
+      threshold: 0.25
+      min_drifted_features: 3
+
+    model_drift:
+      enabled: true
+      threshold: 0.25
+
+    performance_degradation:
+      enabled: true
+      threshold: 0.1
+      metric: "f1"
+
+    time_based:
+      enabled: true
+      interval_days: 30
+
+    data_volume:
+      enabled: true
+      min_new_samples: 10000
+
+prometheus:
+  metrics:
+    # Drift metrics
+    - name: "feature_drift_score"
+      type: "gauge"
+      description: "Drift score for each feature"
+      labels: ["feature_name", "method"]
+
+    - name: "model_drift_score"
+      type: "gauge"
+      description: "Overall model drift score"
+
+    - name: "drift_alerts_total"
+      type: "counter"
+      description: "Total number of drift alerts"
+      labels: ["severity", "drift_type"]
+
+    # Performance metrics
+    - name: "model_accuracy"
+      type: "gauge"
+      description: "Current model accuracy"
+
+    - name: "model_auc_roc"
+      type: "gauge"
+      description: "Current model AUC-ROC"
+
+    - name: "prediction_distribution"
+      type: "histogram"
+      description: "Distribution of prediction probabilities"
+      buckets: [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+
+    # System metrics
+    - name: "monitoring_check_duration_seconds"
+      type: "histogram"
+      description: "Time taken for monitoring checks"
+
+    - name: "monitoring_check_errors_total"
+      type: "counter"
+      description: "Total monitoring check errors"
+
+grafana:
+  dashboards:
+    - name: "Data Drift Dashboard"
+      panels:
+        - feature_drift_scores
+        - drifted_features_count
+        - drift_timeline
+        - feature_distributions
+
+    - name: "Model Performance Dashboard"
+      panels:
+        - model_metrics
+        - prediction_distribution
+        - confidence_distribution
+        - error_analysis
+
+    - name: "Alerting Dashboard"
+      panels:
+        - active_alerts
+        - alert_history
+        - alert_response_time
+        - retraining_triggers
+
+database:
+  host: "${POSTGRES_HOST}"
+  port: "${POSTGRES_PORT}"
+  database: "${POSTGRES_DB}"
+  user: "${POSTGRES_USER}"
+  password: "${POSTGRES_PASSWORD}"
+
+  tables:
+    predictions: "predictions"
+    features: "feature_values"
+    drift_baselines: "drift_baselines"
+    drift_results: "drift_results"
+    drift_alerts: "drift_alerts"
+
+logging:
+  level: "INFO"
+  format: "json"
+  file: "logs/monitoring.log"
