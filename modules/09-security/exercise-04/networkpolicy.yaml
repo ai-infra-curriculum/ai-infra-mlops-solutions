@@ -1,0 +1,24 @@
+# Default-deny + explicit allow for iris-api: ingress from nginx, egress to db + dns + s3.
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata: { name: default-deny, namespace: iris }
+spec:
+  podSelector: {}
+  policyTypes: [Ingress, Egress]
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata: { name: iris-api-allow, namespace: iris }
+spec:
+  podSelector: { matchLabels: { app: iris-api } }
+  policyTypes: [Ingress, Egress]
+  ingress:
+    - from: [{ namespaceSelector: { matchLabels: { name: ingress-nginx } } }]
+      ports: [{ port: 8000, protocol: TCP }]
+  egress:
+    - to: [{ namespaceSelector: { matchLabels: { name: kube-system } } }]    # DNS
+      ports: [{ port: 53, protocol: UDP }, { port: 53, protocol: TCP }]
+    - to: [{ podSelector: { matchLabels: { app: pg } } }]
+      ports: [{ port: 5432, protocol: TCP }]
+    - to: [{ ipBlock: { cidr: 0.0.0.0/0, except: [10.0.0.0/8] } }]            # S3
+      ports: [{ port: 443, protocol: TCP }]

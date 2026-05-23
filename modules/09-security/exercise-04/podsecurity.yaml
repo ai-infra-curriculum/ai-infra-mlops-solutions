@@ -1,0 +1,34 @@
+# Hardened Pod spec: non-root, read-only fs, no host namespaces, dropped caps.
+apiVersion: v1
+kind: Pod
+metadata:
+  name: iris-api
+  namespace: iris
+spec:
+  automountServiceAccountToken: false
+  hostPID: false
+  hostNetwork: false
+  hostIPC: false
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 10001
+    runAsGroup: 10001
+    fsGroup: 10001
+    seccompProfile: { type: RuntimeDefault }
+  containers:
+    - name: iris-api
+      image: ghcr.io/me/iris-api:0.6
+      imagePullPolicy: IfNotPresent
+      securityContext:
+        allowPrivilegeEscalation: false
+        readOnlyRootFilesystem: true
+        capabilities: { drop: [ALL] }
+      resources:
+        requests: { cpu: 100m, memory: 256Mi }
+        limits:   { cpu: 500m, memory: 512Mi }
+      volumeMounts:
+        - { name: tmp,  mountPath: /tmp }
+        - { name: home, mountPath: /home/app/.cache }
+  volumes:
+    - { name: tmp,  emptyDir: {} }
+    - { name: home, emptyDir: {} }
