@@ -1,0 +1,30 @@
+# Prometheus recording + alerting rules for ML serving SLOs.
+groups:
+  - name: iris-api-sli
+    interval: 30s
+    rules:
+      - record: sli:availability:ratio_rate5m
+        expr: |
+          sum(rate(http_requests_total{job="iris-api",status!~"5.."}[5m]))
+          /
+          sum(rate(http_requests_total{job="iris-api"}[5m]))
+      - record: sli:availability:ratio_rate1h
+        expr: |
+          sum(rate(http_requests_total{job="iris-api",status!~"5.."}[1h]))
+          /
+          sum(rate(http_requests_total{job="iris-api"}[1h]))
+      - record: sli:latency:under_200ms_rate5m
+        expr: |
+          sum(rate(http_request_duration_seconds_bucket{job="iris-api",le="0.2"}[5m]))
+          /
+          sum(rate(http_request_duration_seconds_count{job="iris-api"}[5m]))
+
+  - name: iris-api-burn
+    rules:
+      - alert: BudgetBurnFast
+        expr: |
+          ( (1 - sli:availability:ratio_rate1h) / 0.005 > 14.4 )
+          and
+          ( (1 - sli:availability:ratio_rate5m) / 0.005 > 14.4 )
+        labels: { severity: critical }
+        annotations: { summary: "30d availability budget burning > 14.4x" }
