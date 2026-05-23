@@ -1,0 +1,113 @@
+# Model Serving Configuration
+api:
+  host: "${API_HOST}"
+  port: "${API_PORT}"
+  workers: "${API_WORKERS}"
+  reload: "${API_RELOAD}"
+  title: "Churn Prediction API"
+  description: "Production API for customer churn prediction"
+  version: "1.0.0"
+  docs_url: "/docs"
+  redoc_url: "/redoc"
+  openapi_url: "/openapi.json"
+
+model:
+  name: "${MODEL_NAME}"
+  stage: "${MODEL_STAGE}"
+  version: "${MODEL_VERSION}"
+  mlflow_uri: "${MLFLOW_TRACKING_URI}"
+  cache_enabled: true
+  cache_ttl_seconds: 3600
+  warm_up: true
+
+prediction:
+  threshold: "${PREDICTION_THRESHOLD}"
+  batch_size: 1000
+  timeout_seconds: 30
+
+  confidence_levels:
+    high: 0.8
+    medium: 0.6
+    low: 0.4
+
+  output_format:
+    include_probability: true
+    include_confidence: true
+    include_feature_importance: false
+    include_explanation: false
+
+features:
+  validation_enabled: true
+  required_features:
+    - age
+    - tenure_months
+    - monthly_charges
+    - total_charges
+    - contract_type
+    - payment_method
+    - internet_service
+
+  feature_store:
+    enabled: true
+    type: "${FEATURE_STORE_TYPE}"
+    cache_enabled: true
+    cache_ttl_seconds: "${FEATURE_TTL_SECONDS}"
+
+authentication:
+  enabled: true
+  type: "api_key"
+  api_key: "${API_KEY}"
+  header_name: "X-API-Key"
+
+rate_limiting:
+  enabled: true
+  requests_per_minute: "${API_RATE_LIMIT}"
+  burst: 100
+
+monitoring:
+  enabled: true
+  log_predictions: true
+  log_features: true
+  log_errors: true
+
+  prometheus:
+    enabled: true
+    port: "${PROMETHEUS_PORT}"
+    path: "/metrics"
+
+  health_check:
+    enabled: true
+    path: "/health"
+    interval_seconds: 30
+
+caching:
+  enabled: true
+  backend: "redis"
+  redis_host: "${REDIS_HOST}"
+  redis_port: "${REDIS_PORT}"
+  redis_db: "${REDIS_DB}"
+  ttl_seconds: 300
+
+logging:
+  level: "${LOG_LEVEL}"
+  format: "${LOG_FORMAT}"
+  file: "logs/api.log"
+
+  access_log:
+    enabled: true
+    format: '%(h)s %(l)s %(u)s %(t)s "%(r)s" %(s)s %(b)s "%(f)s" "%(a)s"'
+
+  error_log:
+    enabled: true
+    format: '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+
+cors:
+  enabled: true
+  allow_origins:
+    - "*"
+  allow_methods:
+    - "GET"
+    - "POST"
+  allow_headers:
+    - "*"
+  allow_credentials: true

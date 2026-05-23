@@ -1,0 +1,22 @@
+# Include base requirements
+-r requirements.txt
+
+# Development Tools
+ipython==8.19.0
+jupyter==1.0.0
+jupyterlab==4.0.10
+notebook==7.0.6
+
+# Documentation
+mkdocs==1.5.3
+mkdocs-material==9.5.3
+pdoc3==0.10.0
+
+# Profiling & Debugging
+memory-profiler==0.61.0
+line-profiler==4.1.1
+py-spy==0.3.14
+ipdb==0.13.13
+
+# Pre-commit Hooks
+pre-commit==3.6.0
