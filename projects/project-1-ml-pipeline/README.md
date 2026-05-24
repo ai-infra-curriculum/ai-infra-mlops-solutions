@@ -188,9 +188,10 @@ open http://localhost:8000/docs
 ## 📚 Documentation
 
 - **[PROJECT_STATUS.md](PROJECT_STATUS.md)**: Detailed progress tracking
-- **[REQUIREMENTS.md](../../learning/ai-infra-mlops-learning/projects/project-1-ml-pipeline/REQUIREMENTS.md)**: Complete technical requirements
-- **[ARCHITECTURE.md](../../learning/ai-infra-mlops-learning/projects/project-1-ml-pipeline/ARCHITECTURE.md)**: System architecture and design
-- **STEP_BY_STEP.md**: Implementation guide (coming soon)
+- **[REQUIREMENTS.md](https://github.com/ai-infra-curriculum/ai-infra-mlops-learning/blob/main/projects/project-1-ml-pipeline/REQUIREMENTS.md)**: Complete technical requirements (learning repo)
+- **[ARCHITECTURE.md](https://github.com/ai-infra-curriculum/ai-infra-mlops-learning/blob/main/projects/project-1-ml-pipeline/ARCHITECTURE.md)**: System architecture and design (learning repo)
+- **[STEP_BY_STEP.md](STEP_BY_STEP.md)**: Implementation guide
+- **[docs/POSTMORTEM_TEMPLATE.md](docs/POSTMORTEM_TEMPLATE.md)**: Incident postmortem template
 
 ---
 
@@ -250,7 +251,7 @@ This pipeline implements a layered architecture with clear separation of concern
 5. **Monitoring Layer**: Drift detection, alerting, and retraining triggers
 6. **Orchestration Layer**: Airflow DAGs for automation
 
-See [ARCHITECTURE.md](../../learning/ai-infra-mlops-learning/projects/project-1-ml-pipeline/ARCHITECTURE.md) for detailed design.
+See [ARCHITECTURE.md](https://github.com/ai-infra-curriculum/ai-infra-mlops-learning/blob/main/projects/project-1-ml-pipeline/ARCHITECTURE.md) for detailed design (learning repo).
 
 ---
 
