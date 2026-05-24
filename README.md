@@ -93,9 +93,9 @@ This track is for:
 
 ## Related Resources
 
-- [MLOps Learning Repository](../../learning/ai-infra-mlops-learning/)
-- [Engineer Track (prerequisite)](../../learning/ai-infra-engineer-learning/)
-- [ML Platform Track (advanced)](../../learning/ai-infra-ml-platform-learning/)
+- [MLOps Learning Repository](https://github.com/ai-infra-curriculum/ai-infra-mlops-learning)
+- [Engineer Track (prerequisite)](https://github.com/ai-infra-curriculum/ai-infra-engineer-learning)
+- [ML Platform Track (advanced)](https://github.com/ai-infra-curriculum/ai-infra-ml-platform-learning)
 
 ## Status & Roadmap
 
