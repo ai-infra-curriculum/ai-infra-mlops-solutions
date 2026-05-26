@@ -1,0 +1,17 @@
+name: events_training
+config_version: 1.0
+class_name: Checkpoint
+run_name_template: "%Y%m%d-%H%M%S-events"
+validations:
+  - batch_request:
+      datasource_name: warehouse
+      data_asset_name: events.training_v1
+    expectation_suite_name: events_training
+action_list:
+  - { name: store_validation_result, action: { class_name: StoreValidationResultAction } }
+  - { name: update_data_docs, action: { class_name: UpdateDataDocsAction, site_names: [s3_site] } }
+  - name: notify_slack_on_failure
+    action:
+      class_name: SlackNotificationAction
+      slack_webhook: ${SLACK_WEBHOOK}
+      notify_on: failure

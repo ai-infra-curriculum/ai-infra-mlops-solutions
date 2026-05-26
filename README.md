@@ -1,133 +1,79 @@
-# AI Infrastructure MLOps Engineer - Solutions Repository
+# AI Infrastructure MLOps Engineer — Solutions Repository
 
-> **Status**: 🚧 **PLACEHOLDER - Content Coming Soon**
+> **Status**: ✅ **Published** — 10 modules, 5 projects, 50 reference solutions live as of 2026-05.
+> Content is AI-assisted and undergoing human review; treat as a learning reference, cross-check with primary sources.
 
-## Overview
+Reference implementations for the **AI Infrastructure MLOps Engineer** learning track ([ai-infra-mlops-learning](https://github.com/ai-infra-curriculum/ai-infra-mlops-learning)).
 
-This repository contains solution code, reference implementations, and completed exercises for the **AI Infrastructure MLOps Engineer** learning track.
+For the authoritative list of what is covered, see [`SOLUTIONS_INDEX.md`](./SOLUTIONS_INDEX.md).
 
-## What This Repository Will Contain
+## What's in here
 
-### Module Solutions
-Solutions for all exercises and capstone projects in the MLOps Engineer track, including:
-- CI/CD pipeline implementations for ML models
-- Model registry and versioning solutions
-- Automated testing frameworks for ML systems
-- Feature store implementations
-- Model monitoring and drift detection systems
-- A/B testing infrastructure
-- ML experiment tracking solutions
+- **`modules/`** — Worked solutions for module-level exercises, organized one directory per module slug (`01-mlops-foundations` through `10-advanced-topics`).
+- **`projects/`** — Production-grade reference implementations for the 5 capstone projects:
+  - `project-1-ml-pipeline` — end-to-end training, deployment, monitoring
+  - `project-2-model-serving` — multi-environment serving and rollout
+  - `project-3-experimentation` — experiment tracking and A/B test infra
+  - `project-4-governance` — model registry, lineage, compliance
+  - `project-5-llmops` — LLM-focused operations and observability
+- **`guides/`** — Implementation notes and troubleshooting walkthroughs.
+- **`resources/`** — Shared references used across modules and projects.
+- **[`LEARNING_GUIDE.md`](./LEARNING_GUIDE.md)** — Recommended path through the solutions.
+- **[`CURRICULUM.md`](./CURRICULUM.md)** — Mapping back to the learning track's module structure.
 
-### Reference Implementations
-Production-grade implementations of:
-- Complete MLOps pipelines (training → deployment → monitoring)
-- Multi-environment ML deployment (dev/staging/prod)
-- Model governance and compliance frameworks
-- Cost optimization strategies for ML workloads
+## How to use this repository
 
-### Code Quality Standards
-All solutions will include:
-- Comprehensive unit and integration tests
-- CI/CD pipeline configurations
-- Documentation and architecture diagrams
-- Performance benchmarks
-- Best practices and anti-patterns
-
-## Repository Structure
-
-```
-ai-infra-mlops-solutions/
-├── README.md
-├── modules/
-│   ├── mod-001-mlops-fundamentals/
-│   ├── mod-002-ci-cd-for-ml/
-│   ├── mod-003-model-registry/
-│   ├── mod-004-feature-engineering/
-│   ├── mod-005-experiment-tracking/
-│   ├── mod-006-model-monitoring/
-│   ├── mod-007-ab-testing/
-│   └── mod-008-ml-governance/
-├── capstone-projects/
-│   └── end-to-end-mlops-platform/
-└── reference-architectures/
-    ├── mlflow-deployment/
-    ├── kubeflow-pipelines/
-    └── feast-feature-store/
-```
+1. **Attempt the exercise yourself first** in the learning repo — solutions only help if you've struggled with the problem.
+2. **Compare your approach** to the solution. Look at structure, error handling, and test coverage rather than just whether the code "works."
+3. **Read the SOLUTION notes** where present — they explain *why* a particular pattern was chosen.
+4. **Extend the solution.** Try the bonus challenges or harden the production surface (rate limiting, observability, SLOs).
 
 ## Prerequisites
 
-Before using these solutions, you should:
-- Complete the corresponding learning modules
-- Attempt the exercises independently first
-- Understand the problem statements and requirements
+You should have completed (or be working through):
 
-## How to Use This Repository
+- The [Engineer track](https://github.com/ai-infra-curriculum/ai-infra-engineer-learning) — production ML systems, distributed training, MLOps fundamentals.
+- The corresponding module in [ai-infra-mlops-learning](https://github.com/ai-infra-curriculum/ai-infra-mlops-learning) for the exercise you are reviewing.
 
-1. **Complete the exercise yourself first** - Attempt the problem without looking at solutions
-2. **Compare your approach** - Review the solution to see alternative implementations
-3. **Understand the differences** - Learn why certain patterns were chosen
-4. **Extend the solution** - Try bonus challenges or production enhancements
+**Experience level**: Intermediate (2–4 years of engineering experience).
+**Time commitment**: 580 hours total across the track.
 
-## Learning Objectives
+## Learning objectives
 
 The MLOps Engineer track prepares you to:
-- Design and implement end-to-end MLOps pipelines
-- Automate ML model deployment and monitoring
-- Build scalable feature stores and experiment tracking systems
-- Implement model governance and compliance frameworks
-- Optimize ML infrastructure costs
-- Enable data scientists to deploy models independently
 
-## Target Audience
+- Design and operate end-to-end MLOps pipelines (training → deployment → monitoring).
+- Automate ML model deployment and rollback safely.
+- Build feature stores, experiment tracking, and model registry systems.
+- Implement model governance, lineage, and compliance frameworks.
+- Detect data and prediction drift in production.
+- Enable data scientists to ship models without platform-team bottlenecks.
 
-This track is for:
-- Software engineers transitioning to MLOps
-- ML engineers wanting to strengthen deployment skills
-- Platform engineers supporting ML teams
-- DevOps engineers working with ML systems
+## Related repositories
 
-**Experience Level**: Intermediate (2-4 years of engineering experience)
+- [ai-infra-mlops-learning](https://github.com/ai-infra-curriculum/ai-infra-mlops-learning) — the companion learning materials.
+- [ai-infra-engineer-learning](https://github.com/ai-infra-curriculum/ai-infra-engineer-learning) — recommended prerequisite track.
+- [ai-infra-ml-platform-learning](https://github.com/ai-infra-curriculum/ai-infra-ml-platform-learning) — natural follow-on track for platform-builder paths.
 
-**Time Commitment**: 200-250 hours total
+## Known limitations
 
-## Related Resources
-
-- [MLOps Learning Repository](../../learning/ai-infra-mlops-learning/)
-- [Engineer Track (prerequisite)](../../learning/ai-infra-engineer-learning/)
-- [ML Platform Track (advanced)](../../learning/ai-infra-ml-platform-learning/)
-
-## Status & Roadmap
-
-### Phase 1: Foundation (Planned)
-- [ ] Module solutions for MLOps fundamentals
-- [ ] CI/CD pipeline examples
-- [ ] Model registry implementations
-
-### Phase 2: Advanced Topics (Planned)
-- [ ] Feature store solutions
-- [ ] Monitoring and drift detection
-- [ ] A/B testing frameworks
-
-### Phase 3: Capstone Projects (Planned)
-- [ ] End-to-end MLOps platform
-- [ ] Multi-model deployment system
-- [ ] Automated ML pipeline
+- **Content is AI-assisted and partly under human review.** Cross-check with vendor docs and production references before adopting patterns wholesale.
+- Some `Dockerfile`/`compose`/`k8s` manifests are illustrative rather than fully runnable in your environment without configuration.
+- Where a solution is intentionally schematic, the relevant `SOLUTION.md` (or top-of-file comment) explains what is real vs. what is stubbed.
 
 ## Contributing
 
-This is a learning resource. Solutions are designed to:
-- Follow industry best practices
-- Provide educational value
-- Demonstrate production-quality code
-- Include comprehensive explanations
+Issues, corrections, and pull requests are welcome. See [`CONTRIBUTING.md`](./CONTRIBUTING.md). The most useful contributions right now are:
+
+- Fixing factual errors or stale references.
+- Adding `SOLUTION.md` notes that explain the *why* behind a reference implementation.
+- Improving runnable validation for the project-level reference architectures.
 
 ## License
 
-Educational use only. See LICENSE file for details.
+See [`LICENSE`](./LICENSE).
 
 ---
 
-**Last Updated**: 2025-10-25
-**Status**: Placeholder - Content development in progress
-**Maintainer**: AI Infrastructure Curriculum Team
+**Last updated**: 2026-05-25
+**Maintainer**: AI Infrastructure Curriculum Project
