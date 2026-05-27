@@ -7,6 +7,10 @@ Reference implementations for the **AI Infrastructure MLOps Engineer** learning 
 
 For the authoritative list of what is covered, see [`SOLUTIONS_INDEX.md`](./SOLUTIONS_INDEX.md).
 
+## What's new — 2026-05-27
+
+Module-level `SOLUTION.md` design-rationale docs for all 10 modules (`01-mlops-foundations` through `10-advanced-topics`) explain *why* the reference implementations are shaped the way they are — the registry / monitoring / governance patterns that scale from one model to many. Audit score: 65 → 67.
+
 ## What's in here
 
 - **`modules/`** — Worked solutions for module-level exercises, organized one directory per module slug (`01-mlops-foundations` through `10-advanced-topics`).
