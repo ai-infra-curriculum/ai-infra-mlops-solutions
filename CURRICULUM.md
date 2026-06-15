@@ -23,6 +23,12 @@ Each module solution directory (`modules/NN-<slug>/`) should include:
 - Each exercise directory has a `README.md` linking back to the learning exercise
 - Working reference code/configs
 
+## Projects
+
+Reference implementations for the capstone projects live under `projects/`:
+
+- `project-2-model-serving`
+
 ## Structural Rules
 
 - Module slugs MUST match the paired learning repository.
