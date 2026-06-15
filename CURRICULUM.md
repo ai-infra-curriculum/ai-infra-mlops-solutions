@@ -28,6 +28,7 @@ Each module solution directory (`modules/NN-<slug>/`) should include:
 Reference implementations for the capstone projects live under `projects/`:
 
 - `project-2-model-serving`
+- `project-3-experimentation`
 
 ## Structural Rules
 
