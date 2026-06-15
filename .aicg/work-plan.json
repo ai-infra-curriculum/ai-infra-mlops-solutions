@@ -1,0 +1,23 @@
+{
+  "audit_summary": {
+    "error_count": 0,
+    "gap_count": 2,
+    "module_count": 0,
+    "project_count": 5,
+    "status": "pass",
+    "warning_count": 2
+  },
+  "backlog_item_count": 0,
+  "backlog_items": [],
+  "generated_at": "2026-06-01T22:27:33Z",
+  "repo": {
+    "has_git": true,
+    "kind": "solutions",
+    "name": "ai-infra-mlops-solutions",
+    "path": "/home/rook/ai-infra-curriculum/ai-infra-mlops-solutions",
+    "track": "mlops"
+  },
+  "schema_version": 2,
+  "work_item_count": 0,
+  "work_items": []
+}
