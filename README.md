@@ -1,5 +1,9 @@
 # AI Infrastructure MLOps Engineer — Solutions Repository
 
+<!-- aicg:site-banner -->
+> 🎓 Part of the **[AI Infrastructure Curriculum](https://ai-infra-curriculum.github.io/)** — a free, open-source ladder of role-based AI-infrastructure programs. [Explore the ladder](https://ai-infra-curriculum.github.io/) · [Join the first live cohort](https://ai-infra-curriculum.github.io/junior.html)
+<!-- /aicg:site-banner -->
+
 > **Status**: ✅ **Published** — 10 modules, 5 projects, 50 reference solutions live as of 2026-05.
 > Content is AI-assisted and undergoing human review; treat as a learning reference, cross-check with primary sources.
 
@@ -81,7 +85,6 @@ See [`LICENSE`](./LICENSE).
 
 **Last updated**: 2026-05-25
 **Maintainer**: AI Infrastructure Curriculum Project
-
 
 ---
 
