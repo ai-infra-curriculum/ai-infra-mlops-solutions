@@ -1,8 +1,24 @@
 # SOLUTION — MLOps Security
 
-> Read this *after* you have implemented the reference MLOps
-> security controls. This document explains *why* ML-specific
-> security concerns deserve their own module.
+> High-level index for module 09. Per-exercise solutions live in
+> each `exercise-N/` directory; this page keeps the module-level
+> rationale (why these controls exist, what trade-offs were
+> accepted) that all five exercises share.
+
+## Exercise solutions
+
+| Exercise | Topic | Solution |
+|---|---|---|
+| 01 | Threat modeling (OWASP ML Top 10) | [exercise-01/SOLUTION.md](exercise-01/SOLUTION.md) |
+| 02 | Secrets with HashiCorp Vault | [exercise-02/README.md](exercise-02/README.md) |
+| 03 | Supply chain (SLSA + SBOM + cosign) | [exercise-03/README.md](exercise-03/README.md) |
+| 04 | Container runtime security | [exercise-04/README.md](exercise-04/README.md) |
+| 05 | Complete MLOps security framework | [exercise-05/SOLUTION.md](exercise-05/SOLUTION.md) |
+
+Ex-01 and ex-05 carry full grader-facing SOLUTION.md files
+(worked answer, validation, rubric, common mistakes,
+references). Ex-02 through ex-04 keep their reference artifacts
+alongside a short `README.md`.
 
 ## What this module is really teaching
 

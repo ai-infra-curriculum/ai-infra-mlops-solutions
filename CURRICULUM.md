@@ -35,3 +35,11 @@ Reference implementations for the capstone projects live under `projects/`:
 - Module slugs MUST match the paired learning repository.
 - Solutions are reference implementations; learners are expected to attempt the exercises first before consulting.
 - Operational reports belong in the workspace `_meta/`, not the repo root.
+
+## Shipped (autonomous)
+
+Auto-appended by the AICG runner. One row per verified work item. Edit the rest of the document by hand; this section is additive only.
+
+| Date | Work ID | Scope | Title |
+|---|---|---|---|
+| 2026-09-28 | `depth-mod-009-security-exercises` | `mod-009-security` | Add exercise-level depth for mod-009-security |
