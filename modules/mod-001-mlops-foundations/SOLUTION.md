@@ -2,7 +2,20 @@
 
 > Read this *after* you have built the reference foundations. This
 > document explains *why* the MLOps starting point is shaped the
-> way it is.
+> way it is, and indexes the per-exercise walkthroughs.
+
+## Per-exercise solutions
+
+| Exercise | Topic | Walkthrough |
+|---|---|---|
+| 01 | MLOps maturity assessment | [exercise-01/SOLUTION.md](exercise-01/SOLUTION.md) |
+| 02 | Design an MLOps pipeline | [exercise-02/SOLUTION.md](exercise-02/SOLUTION.md) |
+| 03 | Spot the anti-patterns | [exercise-03/SOLUTION.md](exercise-03/SOLUTION.md) |
+| 04 | Build a minimal stack | [exercise-04/README.md](exercise-04/README.md) |
+| 05 | Team charter | [exercise-05/SOLUTION.md](exercise-05/SOLUTION.md) |
+
+The rationale below is shared context for every exercise; the per-exercise files carry
+the worked answer, rubric, and validation steps.
 
 ## What this module is really teaching
 
