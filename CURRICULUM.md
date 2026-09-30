@@ -32,6 +32,7 @@ Reference solutions for the modules live under `modules/`:
 - `mod-003-model-monitoring`
 - `mod-004-data-quality`
 - `mod-005-experimentation`
+- `mod-006-automation`
 
 ## Projects
 
