@@ -30,6 +30,7 @@ Reference solutions for the modules live under `modules/`:
 - `mod-001-mlops-foundations`
 - `mod-002-experiment-tracking`
 - `mod-003-model-monitoring`
+- `mod-004-data-quality`
 
 ## Projects
 
