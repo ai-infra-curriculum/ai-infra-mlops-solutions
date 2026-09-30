@@ -27,8 +27,11 @@ Each module solution directory (`modules/NN-<slug>/`) should include:
 
 Reference implementations for the capstone projects live under `projects/`:
 
-- `project-2-model-serving`
-- `project-3-experimentation`
+- `project-01-ml-pipeline`
+- `project-02-model-serving`
+- `project-03-experimentation`
+- `project-04-governance`
+- `project-05-llmops`
 
 ## Structural Rules
 
