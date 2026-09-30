@@ -33,6 +33,7 @@ Reference solutions for the modules live under `modules/`:
 - `mod-004-data-quality`
 - `mod-005-experimentation`
 - `mod-006-automation`
+- `mod-007-governance`
 
 ## Projects
 
