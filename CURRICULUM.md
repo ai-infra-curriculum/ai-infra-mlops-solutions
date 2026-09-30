@@ -23,6 +23,12 @@ Each module solution directory (`modules/NN-<slug>/`) should include:
 - Each exercise directory has a `README.md` linking back to the learning exercise
 - Working reference code/configs
 
+## Modules
+
+Reference solutions for the modules live under `modules/`:
+
+- `mod-001-mlops-foundations`
+
 ## Projects
 
 Reference implementations for the capstone projects live under `projects/`:
