@@ -35,6 +35,7 @@ Reference solutions for the modules live under `modules/`:
 - `mod-006-automation`
 - `mod-007-governance`
 - `mod-008-production-ops`
+- `mod-009-security`
 
 ## Projects
 
