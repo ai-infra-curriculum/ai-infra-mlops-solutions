@@ -34,6 +34,7 @@ Reference solutions for the modules live under `modules/`:
 - `mod-005-experimentation`
 - `mod-006-automation`
 - `mod-007-governance`
+- `mod-008-production-ops`
 
 ## Projects
 
