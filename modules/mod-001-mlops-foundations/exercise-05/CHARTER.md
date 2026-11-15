@@ -3,7 +3,7 @@
 Reference for [learning ex-05](https://github.com/ai-infra-curriculum/ai-infra-mlops-learning/blob/main/lessons/mod-001-mlops-foundations/exercises/exercise-05-write-an-mlops-team-charter.md).
 
 See the more detailed charter at
-[engineer-solutions/mod-106 ex-14 (ml-platform-operating-model)](https://github.com/ai-infra-curriculum/ai-infra-engineer-solutions/tree/main/modules/mod-106-mlops/exercise-14-ml-platform-operating-model/CHARTER.md).
+[engineer-solutions/mod-106 ex-14 (ml-platform-operating-model)](https://github.com/ai-infra-curriculum/ai-infra-engineer-solutions/blob/main/modules/mod-106-mlops/exercise-14-ml-platform-operating-model/CHARTER.md).
 
 ## Abbreviated charter
 
