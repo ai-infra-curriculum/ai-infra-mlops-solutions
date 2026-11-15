@@ -12,7 +12,7 @@ office hours / project intake ratios), commits to support tiers with response ti
 and picks measurable success metrics.
 
 Cross-repo companion: see
-[engineer-solutions/mod-106 ex-14 (ml-platform-operating-model) CHARTER.md](https://github.com/ai-infra-curriculum/ai-infra-engineer-solutions/tree/main/modules/mod-106-mlops/exercise-14-ml-platform-operating-model/CHARTER.md)
+[engineer-solutions/mod-106 ex-14 (ml-platform-operating-model) CHARTER.md](https://github.com/ai-infra-curriculum/ai-infra-engineer-solutions/blob/main/modules/mod-106-mlops/exercise-14-ml-platform-operating-model/CHARTER.md)
 for the fuller version.
 
 ## 2. Worked answer & implementation
@@ -94,5 +94,5 @@ Drawn from [`CHARTER.md`](CHARTER.md)'s failure-modes list and the module-level
   (ai-infra-mlops-learning).
 - Local companion artifact: [`CHARTER.md`](CHARTER.md).
 - Fuller charter reference:
-  [engineer-solutions/mod-106 ex-14 (ml-platform-operating-model) CHARTER.md](https://github.com/ai-infra-curriculum/ai-infra-engineer-solutions/tree/main/modules/mod-106-mlops/exercise-14-ml-platform-operating-model/CHARTER.md).
+  [engineer-solutions/mod-106 ex-14 (ml-platform-operating-model) CHARTER.md](https://github.com/ai-infra-curriculum/ai-infra-engineer-solutions/blob/main/modules/mod-106-mlops/exercise-14-ml-platform-operating-model/CHARTER.md).
 - Module-level rationale: [`../SOLUTION.md`](../SOLUTION.md).
